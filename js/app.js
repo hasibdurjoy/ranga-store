@@ -25,9 +25,9 @@ const showProducts = (products) => {
       <div class="card-body">
         <h5 class="card-title">${product.title}</h5>
         <p>Category: ${product.category}</p>
-        <p>Rating : ${product.rating.rate} ( Total Review : ${product.rating.count} )</p>
+        <p>${ratingStar} ${product.rating.rate} <br> Total Review : ${product.rating.count} </p>
+        <p></p>
         <h3>Price: $ ${product.price}</h3><br>
-        <p>${ratingStar}</p>
       </div>
       <div class="p-3 d-flex justify-content-around">
         <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart <i class="fas fa-shopping-cart"></i></button>
