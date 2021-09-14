@@ -14,6 +14,7 @@ const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
+    const ratingStar = star(Math.round(product.rating.rate));
     const div = document.createElement("div");
     div.classList.add("col");
     div.classList.add("single-product");
@@ -25,7 +26,8 @@ const showProducts = (products) => {
         <h5 class="card-title">${product.title}</h5>
         <p>Category: ${product.category}</p>
         <p>Rating : ${product.rating.rate} ( Total Review : ${product.rating.count} )</p>
-        <h3>Price: $ ${product.price}</h3>
+        <h3>Price: $ ${product.price}</h3><br>
+        <p>${ratingStar}</p>
       </div>
       <div class="p-3 d-flex justify-content-around">
         <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart <i class="fas fa-shopping-cart"></i></button>
@@ -93,4 +95,57 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+
+const star = number => {
+  if (number == 1) {
+    stars = `
+    <i class="fas fa-star yellow-star"></i>
+    <i class="far fa-star "></i>
+    <i class="far fa-star "></i>
+    <i class="far fa-star "></i>
+    <i class="far fa-star "></i>
+    `
+    return stars;
+  }
+  if (number == 2) {
+    stars = `
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="far fa-star "></i>
+    <i class="far fa-star "></i>
+    <i class="far fa-star "></i>
+    `
+    return stars;
+  }
+  if (number == 3) {
+    stars = `
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="far fa-star "></i>
+    <i class="far fa-star "></i>
+    `
+    return stars;
+  }
+  if (number == 4) {
+    stars = `
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="far fa-star "></i>
+    `
+    return stars;
+  }
+  if (number == 5) {
+    stars = `
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    <i class="fas fa-star yellow-star"></i>
+    `
+    return stars;
+  }
+}
 
